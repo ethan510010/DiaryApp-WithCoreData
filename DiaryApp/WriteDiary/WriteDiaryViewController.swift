@@ -10,10 +10,15 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class WriteDiaryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, CLLocationManagerDelegate {
+class WriteDiaryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, CLLocationManagerDelegate, SelectedDatePickerDelegate {
     //UIImagePickerControllerDelegate => 實作選取圖片完後觸發的事件
     //UINavigationControllerDelegate => 開啟相機或存取照片時畫面跳轉所用
     
+    //執行SelectedDatePickerDelegate的方法
+    func passDatePickerTime(selectedDate:String){
+        diaryDateString = selectedDate
+        
+    }
     
     var diary: Diary!
     
@@ -21,6 +26,7 @@ class WriteDiaryViewController: UIViewController, UIImagePickerControllerDelegat
     var diaryTitleText: String?
     var diaryContentText: String?
     var diaryLocationText: String?
+    var diaryDateString: String?
     //日記標題
     @IBOutlet weak var diaryTitle: UITextField!
     // diaryTextView相關
@@ -72,10 +78,24 @@ class WriteDiaryViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
-    
+    //點選相簿按鈕
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
         self.cameraUseWay(2)
         
+    }
+    
+    //選擇日期按鈕
+    
+    @IBAction func selectDate(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "selectDate", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectDate"{
+            if let dateSelectedVC = segue.destination as? ViewController{
+                dateSelectedVC.datePickerDelegate = self
+            }
+        }
     }
     
     
@@ -249,6 +269,10 @@ class WriteDiaryViewController: UIViewController, UIImagePickerControllerDelegat
             diary.diaryLocation = locationText
         }
         
+        //存日期
+        diary.diaryDate = diaryDateString
+//        print(diary.diaryDate)
+        
         if diaryTextView.text.characters.count > 0{
             //把資料存進coreData
             //存內容
@@ -280,6 +304,7 @@ class WriteDiaryViewController: UIViewController, UIImagePickerControllerDelegat
         diary.setValue(self.diaryTitle.text, forKey: "diaryTitle")
         diary.setValue(self.diaryTextView.text, forKey: "diaryContent")
         diary.setValue(self.locationLabel.text, forKey: "diaryLocation")
+        diary.setValue(self.diaryDateString, forKey: "diaryDate")
         
         
         do {

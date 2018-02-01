@@ -1,9 +1,8 @@
 //
 //  DiaryImage+CoreDataProperties.swift
-//  DiaryApp
+//  
 //
-//  Created by EthanLin on 2018/1/24.
-//  Copyright © 2018年 EthanLin. All rights reserved.
+//  Created by EthanLin on 2018/2/1.
 //
 //
 

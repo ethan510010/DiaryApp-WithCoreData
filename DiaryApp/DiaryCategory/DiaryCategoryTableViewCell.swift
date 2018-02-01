@@ -10,6 +10,7 @@ import UIKit
 
 class DiaryCategoryTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var diaryDateLabel: UILabel!
     
     @IBOutlet weak var diaryTitle: UILabel!
     

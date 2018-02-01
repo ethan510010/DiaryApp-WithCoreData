@@ -8,9 +8,27 @@
 
 import UIKit
 
+protocol SelectedDatePickerDelegate{
+    func passDatePickerTime(selectedDate:String)
+}
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    //這個段落處理DatePicker
+    
+    var datePickerDelegate: SelectedDatePickerDelegate?
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBAction func datePickerAction(_ sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy MM dd EE"
+        let dateString = dateFormatter.string(from: datePicker.date)
+        print(dateString)
+        datePickerDelegate?.passDatePickerTime(selectedDate: dateString)
+        //跳回前一個畫面
+        self.navigationController?.popViewController(animated: true)
+    }
     
     //處理是否被點到的事件
     var didTapedArray = [Bool]()
@@ -111,8 +129,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         didTapedArray[indexPath.item] = true
         calendarCollectionView.reloadData()
-        
-//        print(indexPath.item)
+       
     }
     
     //  設定collectionView的layout

@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/ethanlin/Desktop/ios&#x7df4;&#x7fd2;/DiaryApp-WithCoreData-master 2/DiaryApp/Model/DiaryImage+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/ethanlin/Desktop/ios&#x7df4;&#x7fd2;/DiaryApp-WithCoreData-master 2/DiaryApp/Model/DiaryImage+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/ethanlin/Desktop/ios&#x7df4;&#x7fd2;/DiaryApp-WithCoreData-master 2/DiaryApp/Model/Diary+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/ethanlin/Desktop/ios&#x7df4;&#x7fd2;/DiaryApp-WithCoreData-master 2/DiaryApp/Model/Diary+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:DiaryApp.xcodeproj">
    </FileRef>
    <FileRef

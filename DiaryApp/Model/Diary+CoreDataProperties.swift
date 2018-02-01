@@ -1,9 +1,8 @@
 //
 //  Diary+CoreDataProperties.swift
-//  DiaryApp
+//  
 //
-//  Created by EthanLin on 2018/1/24.
-//  Copyright © 2018年 EthanLin. All rights reserved.
+//  Created by EthanLin on 2018/2/1.
 //
 //
 
@@ -20,6 +19,7 @@ extension Diary {
     @NSManaged public var diaryContent: String?
     @NSManaged public var diaryLocation: String?
     @NSManaged public var diaryTitle: String?
+    @NSManaged public var diaryDate: String?
     @NSManaged public var diaryImages: NSSet?
 
 }

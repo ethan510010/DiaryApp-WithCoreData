@@ -46,6 +46,7 @@ class DiaryCategoryTableViewController: UITableViewController, NSFetchedResultsC
         
         cell.diaryTitle.text = diaryCategoryArray[indexPath.row].diaryTitle
         cell.diaryLocation.text = diaryCategoryArray[indexPath.row].diaryLocation
+        cell.diaryDateLabel.text = diaryCategoryArray[indexPath.row].diaryDate
         
         
 //        cell.imageView?.image = UIImage(data: (diaryCategoryArray[indexPath.row].diaryImages?.allObjects as! [DiaryImage])[0].diaryImage! as Data)
@@ -86,7 +87,6 @@ class DiaryCategoryTableViewController: UITableViewController, NSFetchedResultsC
                     writeDiaryVC.diary = sender as? Diary
                     //為了讓新增日記裡面不會有內容
                     mySelection = nil
-//                    print(mySelection)
                 }else{
                     print("test")
                     writeDiaryVC.diaryTitleText = ""
